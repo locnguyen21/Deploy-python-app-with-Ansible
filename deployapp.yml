@@ -29,8 +29,11 @@
       
   - name: reload daemon after copy file service an start service with systemd
     service:
+      #systemctl daemon-reload
       daemon_reload: true
+      #systemctl start pyapp
       name: pyapp
       state: started #hoac stopped de tat #
+      #systemctl enable pyapp
       enabled: yes
 

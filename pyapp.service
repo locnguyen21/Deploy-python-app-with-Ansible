@@ -1,0 +1,10 @@
+[Unit]
+Description=Pyapp
+
+[Service]
+ExecStart=/usr/bin/python3 /root/app.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

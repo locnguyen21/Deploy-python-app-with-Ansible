@@ -1,0 +1,36 @@
+--- 
+- hosts: app_servers
+  become: true
+  tasks:
+
+  - name: install python3
+    yum: 
+      name: python3
+  
+  - name: install flask
+    ansible.builtin.pip:
+      name: flask
+  
+  - name: copy python app to server
+    copy: 
+      src: app.py
+      dest: /root/app.py
+      owner: root
+      group: root
+      mode: 0644
+ 
+  - name: copy init service "app" for being controlled  by systemd
+    copy:
+      src: pyapp.service
+      dest: /usr/lib/systemd/system/pyapp.service
+      owner: root
+      group: root
+      mode: 0644
+      
+  - name: reload daemon after copy file service an start service with systemd
+    service:
+      daemon_reload: true
+      name: pyapp
+      state: started #hoac stopped de tat #
+      enabled: yes
+

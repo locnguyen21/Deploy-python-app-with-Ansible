@@ -20,3 +20,12 @@
 ```
 ansible-playbook -i inventory --ask-become-pass deployapp.yml
 ```
+
+Sau khi triển khai xong, thử dịch vụ đã được quản lý bởi systemd hay chưa
+```
+systemctl status pyapp
+```
+Test thử dịch vụ
+```
+curl http://127.0.0.1:80
+```

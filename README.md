@@ -16,6 +16,7 @@
 - Reload lại daemon của systemd (Systemd daemon reload) sau đó bật service (systemctl start pyapp), đồng thời enable ứng dụng sau khi server bị reboot, sử dụng module "service" của ansible
 
 <h2>Lệnh triển khai</h2>
+
 ```
 ansible-playbook -i inventory --ask-become-pass deployapp.yml
 ```
